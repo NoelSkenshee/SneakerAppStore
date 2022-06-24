@@ -53,7 +53,9 @@ button {
   margin: 1px;
   height: 55px !important;
   background-color: greenyellow;
-  color: white!important;
+  color: white !important;
+  font-size: 18px!important;
+  font-family: "FontAwesome"!important;
 }
 
 .icon-w {
@@ -81,7 +83,7 @@ mat-card-content > i {
 }
 
 @keyframes image {
-   10%{
-transform: rotate(30deg);
-   }
+  10% {
+    transform: rotate(30deg);
+  }
 }

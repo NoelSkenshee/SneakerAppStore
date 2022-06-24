@@ -20,7 +20,7 @@ export const URL = {
   image_card:
     'https://tse1.mm.bing.net/th?id=OIP.t6Y7mst0EXjVcYYOXm2SNwAAAA&pid=Api&P=0&w=443&h=185',
 
-  api_url:(endpoint:number)=>`http://localhost:9090/${ends[endpoint]}`
+  api_url:(endpoint:number)=>`https://sneakerstore0.herokuapp.com/${ends[endpoint]}`
 };
 
 export const HEADER = {

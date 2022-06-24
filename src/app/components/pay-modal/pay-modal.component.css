@@ -34,7 +34,8 @@ div.flex {
 
 button {
   width: 40%;
-  background: greenyellow;
-  font: bold;
-  color: white;
+  background-color: greenyellow;
+  color: white !important;
+  font-size: 18px!important;
+  font-family: "FontAwesome"!important;;
 }
