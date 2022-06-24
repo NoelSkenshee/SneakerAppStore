@@ -1,0 +1,47 @@
+<div class="details container-fluid">
+
+  <div *ngIf="sneaker">
+
+    <mat-card class="card-image">
+      <mat-card-content>
+        <i class="fas fa-chevron-left icon-nav" (click)="prevPage()"></i>
+        <img [src]="sneaker.image" mat-card-image alt="">
+        <div class="action">
+          <button color="primary" (click)="openDialog()" mat-button>Go to pay<i class="fa fa-money icon-w"></i></button>
+        </div>
+        <i class="fas fa-chevron-right icon-nav" (click)="nextPage()"></i>
+      </mat-card-content>
+      <mat-card-footer>
+        <table>
+
+          <tr>
+
+            <th>Size</th>
+            <td>{{sneaker.sizeSelected}}</td>
+
+          </tr>
+
+          <tr>
+            <th>brand</th>
+            <td>{{sneaker.brand}}</td>
+
+          </tr>
+          <tr>
+            <th>model</th>
+            <td>{{sneaker.model}}</td>
+          </tr>
+
+          <tr>
+            <th>price</th>
+            <td>{{sneaker.price}}</td>
+          </tr>
+          <tr>
+            <th>Total</th>
+            <td>{{totalPay|currency}}</td>
+          </tr>
+        </table>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>
+<div class="navigator"></div>

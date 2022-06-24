@@ -1,0 +1,22 @@
+grid-tile-footer {
+  bottom: 0;
+  height: 40% !important;
+}
+
+.title-grid-h {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.infoicon {
+  color: blue;
+}
+
+i {
+  overflow: visible;
+  font-size: 30px;
+  color: white;
+}

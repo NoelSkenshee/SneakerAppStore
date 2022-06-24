@@ -1,0 +1,11 @@
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+body{
+  margin:0px;
+  padding: 0px;
+  overflow-x: hidden;
+  font-family: Roboto,sans-serif;
+}
+:fullscreen{
+  background-color: blue;
+}

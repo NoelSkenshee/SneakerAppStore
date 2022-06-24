@@ -1,0 +1,40 @@
+form {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 14px;
+}
+div.flex {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.modes {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.action {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.action > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 40%;
+  background: greenyellow;
+  font: bold;
+  color: white;
+}

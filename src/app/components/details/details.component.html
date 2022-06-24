@@ -1,0 +1,42 @@
+<div class="details container-fluid">
+
+  <div *ngIf="sneaker">
+
+    <mat-card class="card-image">
+      <mat-card-content>
+        <img [src]="sneaker.image" mat-card-image alt="">
+        <div class="action">
+          <mat-form-field appearance="fill">
+            <mat-label>Sizes</mat-label>
+            <mat-select [(ngModel)]="selectedSize">
+              <mat-option [value]="size" *ngFor="let size of sneaker.sizes">
+                {{size}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <button mat-button (click)="addToCard()"><i class="fas fa-add"></i></button>
+        </div>
+      </mat-card-content>
+      <mat-card-footer>
+        <table>
+
+          <tr>
+            <th>brand</th>
+            <td>{{sneaker.brand}}</td>
+
+          </tr>
+          <tr>
+            <th>model</th>
+            <td>{{sneaker.model}}</td>
+          </tr>
+
+          <tr>
+            <th>price</th>
+            <td>{{sneaker.price |currency}}</td>
+          </tr>
+
+        </table>
+      </mat-card-footer>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,40 @@
+<mat-toolbar color="primary">
+  <span>Pay mode</span>
+</mat-toolbar>
+<div class="modes" mat-dialog-content>
+  <img [src]="image_card" alt="">
+  <form action="">
+    <div class="flex">
+      <mat-form-field appearance="fill">
+        <mat-label>What's your name?</mat-label>
+        <input name="client" [(ngModel)]="client" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-select name="creditcard" [(value)]="creditcard">
+          <mat-label>Card option</mat-label>
+          <mat-option [value]="banck" *ngFor="let banck of banckOptions">
+            {{banck}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div class="flex">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Count number *</mat-label>
+        <input type="number" name="creditcardNo" matInput [(ngModel)]="creditcardNo">
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>What's your email *</mat-label>
+        <input matInput name="email" [(ngModel)]="email">
+      </mat-form-field>
+
+    </div>
+
+
+  </form>
+</div>
+<div class="action" mat-dialog-action>
+  <div><span>Total to pay :</span><span>{{totalTopay|currency}}</span> </div>
+  <button (click)="save()" mat-button>Order now</button>
+</div>

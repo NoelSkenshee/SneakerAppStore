@@ -1,0 +1,87 @@
+.details {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  height: 100vh;
+}
+
+.details > div {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.card-image {
+  margin-bottom: 40px;
+  padding: 30px;
+}
+img {
+  width: 33%;
+  transform: scale(1.5);
+  animation: image 4s ease-in-out infinite;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table,
+th,
+td {
+  /* border: 1px solid;
+  background-color: beige;*/
+  padding: 10px;
+}
+
+mat-card-content {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.action {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  height: max-content;
+  align-content: center;
+  justify-content: center;
+}
+button {
+  margin: 1px;
+  height: 55px !important;
+  background-color: greenyellow;
+  color: white!important;
+}
+
+.icon-w {
+  color: white;
+  font-size: 40px;
+}
+
+td {
+  text-align: right;
+}
+
+.navigator {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 12;
+}
+mat-card-content > i {
+  color: greenyellow;
+  font-size: 80px;
+  cursor: pointer;
+}
+
+@keyframes image {
+   10%{
+transform: rotate(30deg);
+   }
+}

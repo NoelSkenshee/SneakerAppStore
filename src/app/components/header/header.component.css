@@ -1,0 +1,64 @@
+mat-toolbar {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+  padding: 15px;
+  height: max-content;
+}
+h1{
+  width: max-content;
+}
+
+i {
+  overflow: visible;
+  font-size: 30px;
+  color: white;
+}
+
+.bookDiches {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: white;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.prev_page {
+  transform: scale(0.4);
+}
+
+.nextPage {
+  transform: scale(0.7);
+}
+
+.start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 111px;
+  cursor: pointer;
+}
+.start > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.start > div > img {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  border-radius: 30%;
+}
+@keyframes slider {
+  100% {
+    opacity: 0;
+  }
+}
