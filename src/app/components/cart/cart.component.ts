@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Sneaker } from '../../Types/snicker';
-import { ReadCard } from '../../servises/events/readCart';
+import { ReadCard } from '../../services/events/readCart';
 import { MatDialog } from '@angular/material/dialog';
 import { PayModalComponent } from '../pay-modal/pay-modal.component';
 import { Router } from '@angular/router';
-import { CleanCart } from '../../servises/events/CleanCart';
+import { CleanCart } from '../../services/events/CleanCart';
 import { CART, ROUTES } from '../../inmutables/const';
 
 @Component({

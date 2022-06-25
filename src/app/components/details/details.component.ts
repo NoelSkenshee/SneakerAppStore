@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Sneaker } from '../../Types/snicker';
-import { SnickerService } from '../../servises/snicker/snicker.service';
-import { EventCard } from '../../servises/events/addToCard';
+import { SnickerService } from '../../services/snicker/snicker.service';
+import { EventCard } from '../../services/events/addToCard';
 import { ROUTES } from '../../inmutables/const';
 
 @Component({

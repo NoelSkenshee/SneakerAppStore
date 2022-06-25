@@ -27,6 +27,8 @@ export const HEADER = {
   app_name: 'Sneaker Store',
 };
 
+export const movileDetected="Estimado usuario, abrir esta aplicacion en un desktop le brindara una mejor experiancia!";
+
 export const PAY_MODAL = {
   bancks: [
     'Banco Popular',

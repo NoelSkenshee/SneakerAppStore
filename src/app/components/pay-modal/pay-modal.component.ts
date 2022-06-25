@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Buy, Order } from '../../Types/buy';
-import { ReadCard } from '../../servises/events/readCart';
+import { ReadCard } from '../../services/events/readCart';
 import { Sneaker } from '../../Types/snicker';
-import { SnickerService } from '../../servises/snicker/snicker.service';
+import { SnickerService } from '../../services/snicker/snicker.service';
 import { DialogRef } from '@angular/cdk/dialog';
-import { CleanCart } from '../../servises/events/CleanCart';
+import { CleanCart } from '../../services/events/CleanCart';
 import { Router } from '@angular/router';
 import { URL } from 'src/app/inmutables/const';
 import { PAY_MODAL, ROUTES } from '../../inmutables/const';

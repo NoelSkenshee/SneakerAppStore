@@ -1,5 +1,7 @@
-<mat-grid-list cols="2" rowHeight="200">
-  <mat-grid-tile rowspan="1.5" *ngFor="let  sneaker of sneakerList">
+
+
+<mat-grid-list cols="2" rowHeight="200" >
+  <mat-grid-tile  rowspan="1.5" *ngFor="let  sneaker of sneakerList">
     <mat-grid-tile-header>
       <div class="title-grid-h"><b>{{sneaker.brand}}-{{sneaker.model}}</b> <button mat-button class="roundicon"
           [routerLink]="['/details',sneaker._id]"><i class="fas fa-info infoicon"></i></button></div>
@@ -8,4 +10,10 @@
     <img [src]="sneaker.image" mat-card-image alt="" style="width:70%;">
 
   </mat-grid-tile>
+
 </mat-grid-list>
+<div class="container" *ngIf="isEmpty">
+
+  <mat-spinner color="primary" mode="determinate" *ngIf="isEmpty" [value]="progress"></mat-spinner>
+
+</div>

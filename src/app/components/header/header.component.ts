@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { SnickerService } from '../../servises/snicker/snicker.service';
+import { SnickerService } from '../../services/snicker/snicker.service';
 import { Sneaker } from '../../Types/snicker';
-import { EventCard } from '../../servises/events/addToCard';
-import { ReadCard } from '../../servises/events/readCart';
+import { EventCard } from '../../services/events/addToCard';
+import { ReadCard } from '../../services/events/readCart';
 import { Router } from '@angular/router';
-import { CleanCart } from '../../servises/events/CleanCart';
+import { CleanCart } from '../../services/events/CleanCart';
 import { ROUTES, URL, HEADER } from '../../inmutables/const';
 @Component({
   selector: 'app-header',
