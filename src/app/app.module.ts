@@ -64,7 +64,8 @@ import { CleanCart } from './services/events/CleanCart';
     MatSelectModule,
     MatDialogModule,
     FormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+
   ],
 
 
