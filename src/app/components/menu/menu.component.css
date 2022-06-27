@@ -11,6 +11,9 @@ grid-tile-footer {
   align-items: center;
 }
 
+.title-grid-h>p{
+  margin: 0;
+}
 .infoicon {
   color: blue;
 }
@@ -28,4 +31,17 @@ i {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.row2colFlex{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+ align-items: center;
+ align-content: center;
+}
+
+.row2colFlex>p{
+  margin: 0;
 }

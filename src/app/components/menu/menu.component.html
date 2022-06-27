@@ -3,8 +3,15 @@
 <mat-grid-list cols="2" rowHeight="200" >
   <mat-grid-tile  rowspan="1.5" *ngFor="let  sneaker of sneakerList">
     <mat-grid-tile-header>
-      <div class="title-grid-h"><b>{{sneaker.brand}}-{{sneaker.model}}</b> <button mat-button class="roundicon"
-          [routerLink]="['/details',sneaker._id]"><i class="fas fa-info infoicon"></i></button></div>
+      <div class="title-grid-h">
+      <p><b>{{sneaker.brand}}-{{sneaker.model}}</b></p>
+      <div class="row2colFlex">
+        <p><b>{{sneaker.createdAt | date}}</b></p>
+        <button mat-button class="roundicon"
+          [routerLink]="['/details',sneaker._id]"><i class="fas fa-info infoicon"></i>
+        </button>
+      </div>
+        </div>
     </mat-grid-tile-header>
 
     <img [src]="sneaker.image" mat-card-image alt="" style="width:70%;">

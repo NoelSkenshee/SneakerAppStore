@@ -6,6 +6,7 @@ export type Sneaker = {
   model: string;
   image: string;
   sizeSelected:Number,
-  sizes:Number[]
+  sizes:Number[],
+  createdAt: string//"2022-06-22T20:26:50.260Z"
 };
 
