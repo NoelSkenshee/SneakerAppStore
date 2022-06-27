@@ -31,10 +31,10 @@
 
     </div>
 
-
+    <div class="action" mat-dialog-action>
+      <div><span>Total to pay :</span><span>{{totalTopay|currency}}</span> </div>
+      <button (click)="save()" mat-button>Order now</button>
+    </div>
   </form>
 </div>
-<div class="action" mat-dialog-action>
-  <div><span>Total to pay :</span><span>{{totalTopay|currency}}</span> </div>
-  <button (click)="save()" mat-button>Order now</button>
-</div>
+

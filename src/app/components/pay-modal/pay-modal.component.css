@@ -5,7 +5,7 @@ form {
   margin-top: 14px;
 }
 
-form>*{
+form > * {
   margin: 10px;
 }
 div.flex {
@@ -13,6 +13,8 @@ div.flex {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
 }
 
 .modes {
@@ -39,6 +41,6 @@ button {
   width: 40%;
   background-color: greenyellow;
   color: white !important;
-  font-size: 18px!important;
-  font-family: "FontAwesome"!important;;
+  font-size: 18px !important;
+  font-family: "FontAwesome" !important;
 }
