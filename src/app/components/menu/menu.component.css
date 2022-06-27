@@ -1,6 +1,5 @@
-grid-tile-footer {
-  bottom: 0;
-  height: 40% !important;
+mat-grid-tile-header {
+  height: max-content!important;
 }
 
 .title-grid-h {
@@ -9,6 +8,7 @@ grid-tile-footer {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .title-grid-h>p{
