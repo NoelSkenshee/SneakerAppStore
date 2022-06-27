@@ -1,9 +1,12 @@
 form {
-  width: 600px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   margin-top: 14px;
+}
+
+form>*{
+  margin: 10px;
 }
 div.flex {
   width: 100%;
