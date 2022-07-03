@@ -1,5 +1,6 @@
-mat-grid-tile-header {
+mat-grid-tile-header,mat-grid-tile-footer {
   height: max-content!important;
+  padding: 0!important;
 }
 
 .title-grid-h {

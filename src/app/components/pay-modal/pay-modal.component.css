@@ -8,7 +8,7 @@ form {
 form > * {
   margin: 10px;
 }
-div.flex {
+.flex {
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -29,6 +29,7 @@ div.flex {
   display: flex;
   align-items: center;
   flex-direction: column;
+  justify-content: center;
 }
 
 .action > div {
@@ -38,8 +39,6 @@ div.flex {
 }
 
 button {
-  background-color: greenyellow;
-  color: white !important;
   font-size: 18px !important;
   font-family: "FontAwesome" !important;
 }

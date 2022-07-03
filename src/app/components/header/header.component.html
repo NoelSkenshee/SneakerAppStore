@@ -1,14 +1,13 @@
 <mat-toolbar color="primary">
-  <div class="start"  (click)="goToMenu()">
+  <div class="start" (click)="goToMenu()" title="Go to menu">
     <div class="left-side">
-
-    <img [src]="logo" alt="image">
-    <h1>{{app_title}}</h1>
+      <img [src]="logo" alt="image">
+      <h1>{{app_title}}</h1>
+    </div>
   </div>
-  </div>
 
-  <button (click)="goToCart()" mat-stroked-button color="accent" matBadgeSize="large"><i class="fas fa-shopping-cart"
-      [matBadge]="totalInCart"></i>
+  <button (click)="goToCart()" title="Go to cart" mat-stroked-button color="accent" matBadgeSize="large"><i
+      [class]="'fas fa-shopping-cart '+cartfull" [matBadge]="totalInCart"></i>
   </button>
 </mat-toolbar>
 
@@ -16,8 +15,9 @@
 
   <div class="prev_page">
     <mat-card>
-      <mat-card-content>
-        <img [src]="sneakerList[prev_page].image" mat-card-image alt="">
+      <app-spinner *ngIf="!sneakerList[page_A]"></app-spinner>
+      <mat-card-content *ngIf="sneakerList[page_A]">
+        <img [src]="sneakerList[page_A].image" class="image_trans" mat-card-image alt="">
       </mat-card-content>
     </mat-card>
 
@@ -26,21 +26,22 @@
 
   <div class="page">
     <mat-card>
-      <mat-card-content>
-        <img [src]="sneakerList[page].image" mat-card-image alt="">
-
+      <app-spinner *ngIf="!sneakerList[page_B]"></app-spinner>
+      <mat-card-content *ngIf="sneakerList[page_B]">
+        <img [src]="sneakerList[page_B].image" class="image_trans" mat-card-image alt="">
       </mat-card-content>
 
     </mat-card>
 
   </div>
+
+
   <div class="nextPage">
     <mat-card class="prev">
-      <mat-card-content>
-        <img [src]="sneakerList[nextPage].image" mat-card-image alt="">
-
+      <app-spinner *ngIf="!sneakerList[page_C]"></app-spinner>
+      <mat-card-content *ngIf="sneakerList[page_C]">
+        <img [src]="sneakerList[page_C].image" mat-card-image class="image_trans" alt="">
       </mat-card-content>
-
     </mat-card>
   </div>
 

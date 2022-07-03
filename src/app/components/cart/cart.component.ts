@@ -5,7 +5,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { PayModalComponent } from '../pay-modal/pay-modal.component';
 import { Router } from '@angular/router';
 import { CleanCart } from '../../services/events/CleanCart';
-import { CART, ROUTES } from '../../inmutables/const';
+import { Utils } from '../../inmutables/const';
+const { ROUTES } = Utils;
+const { CART } = Utils.components;
 
 @Component({
   selector: 'app-cart',
@@ -39,14 +41,11 @@ export class CartComponent implements OnInit {
       this.sneaker = this.sneakers[this.page];
       this.totalPay = 0;
       Promise.all(data.map((sneaker) => (this.totalPay += sneaker.price)));
-
     });
     setTimeout(() => {
-      if (this.sneakers.length <= 0)
-        this.router.navigate([ROUTES.menu_route]);
+      if (this.sneakers.length <= 0) this.router.navigate([ROUTES.menu_route]);
     }, 5000);
   }
-
 
   openDialog() {
     this.dialog.open(PayModalComponent, { maxWidth: CART.modal_style });

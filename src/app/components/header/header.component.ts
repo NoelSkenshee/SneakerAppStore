@@ -5,7 +5,9 @@ import { EventCard } from '../../services/events/addToCard';
 import { ReadCard } from '../../services/events/readCart';
 import { Router } from '@angular/router';
 import { CleanCart } from '../../services/events/CleanCart';
-import { ROUTES, URL, HEADER } from '../../inmutables/const';
+import { Utils } from '../../inmutables/const';
+const { HEADER } = Utils.components;
+const { ROUTES, URL } = Utils;
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -14,12 +16,15 @@ import { ROUTES, URL, HEADER } from '../../inmutables/const';
 export class HeaderComponent implements OnInit {
   sneakerList: Sneaker[] = [];
   cart: Sneaker[] = [];
-  page: number = 0;
-  prev_page = 1;
-  nextPage = 2;
+  cartfull = '';
+  fullInterval: any;
+  page_C: number = 0;
+  page_A = 0;
+  page_B = 0;
   totalInCart = 0;
   logo = URL.logo;
   app_title = HEADER.app_name;
+  setIntervalPage: any;
   constructor(
     private sneakerService: SnickerService,
     private cartEvent: EventCard,
@@ -27,51 +32,74 @@ export class HeaderComponent implements OnInit {
     private router: Router,
     private cleanCart: CleanCart
   ) {
-    cartEvent.card$.subscribe((data) => {
+    this.readSneakers();
+
+    this.onAddToCart();
+    this.onClenCart();
+  }
+
+  ngOnInit(): void {}
+
+  readSneakers() {
+    this.sneakerService.listSniker().subscribe((data) => {
+      this.sneakerList = data.data;
+      this.initializePagination();
+    });
+  }
+
+  onAddToCart() {
+    this.cartEvent.card$.subscribe((data) => {
+      clearInterval(this.fullInterval);
       this.cart.push(data);
+      this.fullInterval = setInterval(() => {
+        this.cartfull ? (this.cartfull = '') : (this.cartfull = 'cart_full');
+      }, 4000);
       this.totalInCart = this.cart.length;
     });
+  }
 
-    cleanCart.cart$.subscribe(() => {
-      this.sneakerList = [];
+  onClenCart() {
+    this.cleanCart.cart$.subscribe(() => {
       this.cart = [];
       this.totalInCart = 0;
+      this.cartfull = '';
+      clearInterval(this.fullInterval);
     });
   }
 
   pagination() {
-    setInterval(() => {
-      if (this.page == this.sneakerList.length - 4) {
-        this.page = 0;
-        this.nextPage = 1;
+    this.setIntervalPage = setInterval(() => {
+      let total = this.sneakerList.length;
+      if (this.page_C == 0) {
+        clearInterval(this.setIntervalPage);
+        this.initializePagination();
+        return;
       }
-      this.prev_page = this.page;
-      this.page++;
-      this.nextPage++;
-    }, 10000);
+      this.page_A = this.page_B;
+      this.page_B = this.page_C;
+      this.page_C -= 1;
+    }, 5000);
   }
 
-  ngOnInit(): void {
-    this.sneakerService.listSniker().subscribe((data) => {
-      console.log(data.data.length);
-      this.sneakerList = data.data;
-      this.pagination();
-    });
+  initializePagination() {
+    this.page_C = this.sneakerList.length - 1;
+    this.page_B = this.page_C - 1;
+    this.page_A = this.page_B - 1;
+    this.pagination();
   }
 
   goToCart() {
     if (this.totalInCart > 0) {
       this.readCart.emit(this.cart, false);
       setTimeout(() => {
-      this.readCart.emit(this.cart, false);
+        this.readCart.emit(this.cart, false);
       }, 300);
 
       this.router.navigate([ROUTES.cart_route]);
-
-    }else this.goToMenu()
+    } else this.goToMenu();
   }
 
-   goToMenu(){
-    this.router.navigate([ROUTES.menu_route])
-   }
+  goToMenu() {
+    this.router.navigate([ROUTES.menu_route]);
+  }
 }

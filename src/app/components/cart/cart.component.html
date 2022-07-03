@@ -4,12 +4,14 @@
 
     <mat-card class="card-image">
       <mat-card-content>
-        <i class="fas fa-chevron-left icon-nav" (click)="prevPage()"></i>
+        <i class="fas fa-chevron-left icon-nav" (click)="prevPage()" title="Previous order"
+          *ngIf="this.sneakers.length >1"></i>
         <img [src]="sneaker.image" mat-card-image alt="">
         <div class="action">
-          <button color="primary" (click)="openDialog()" mat-button>ORDER NOW</button>
+          <button color="primary" (click)="openDialog()" mat-button title="Order">ORDER NOW</button>
         </div>
-        <i class="fas fa-chevron-right icon-nav" (click)="nextPage()"></i>
+        <i class="fas fa-chevron-right icon-nav" (click)="nextPage()" title="Next order"
+          *ngIf="this.sneakers.length >1"></i>
       </mat-card-content>
       <mat-card-footer>
         <table>
@@ -17,7 +19,7 @@
           <tr>
 
             <th>Size</th>
-            <td>{{sneaker.sizeSelected}}</td>
+            <td>{{sneaker.sizesaleected}}</td>
 
           </tr>
 
@@ -42,6 +44,10 @@
         </table>
       </mat-card-footer>
     </mat-card>
+
   </div>
+
 </div>
+<app-spinner *ngIf="!sneaker"></app-spinner>
+
 <div class="navigator"></div>

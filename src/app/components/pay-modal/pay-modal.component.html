@@ -1,40 +1,48 @@
 <mat-toolbar color="primary">
-  <span>Pay mode</span>
+  <p>Pay mode</p><br>
 </mat-toolbar>
+
 <div class="modes" mat-dialog-content>
-  <img [src]="image_card" alt="">
-  <form action="">
+
+  <form novalidate [formGroup]="payForm" (ngSubmit)="save()">
+    <img [src]="image_card" alt="">
+    <p class="error" *ngIf="eror">{{eror}} <i class="retry fa fa-repeat"></i></p>
     <div class="flex">
-      <mat-form-field appearance="fill">
+      <mat-form-field class="form-control">
         <mat-label>What's your name?</mat-label>
-        <input name="client" [(ngModel)]="client" matInput>
+        <input name="client" formControlName="client" matInput>
+        <mat-error *ngIf="errorsField.client">{{errorsField.client}}</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
-        <mat-select name="creditcard" [(value)]="creditcard">
-          <mat-label>Card option</mat-label>
+      <mat-form-field class="form-control">
+        <mat-select placeholder="Select Banck" name="creditcard" formControlName="creditcard">
           <mat-option [value]="banck" *ngFor="let banck of banckOptions">
             {{banck}}
           </mat-option>
+          <mat-error *ngIf="errorsField.creditcard">{{errorsField.creditcard}}</mat-error>
         </mat-select>
       </mat-form-field>
     </div>
     <div class="flex">
 
-      <mat-form-field appearance="fill">
+      <mat-form-field class="form-control">
         <mat-label>Count number *</mat-label>
-        <input type="number" name="creditcardNo" matInput [(ngModel)]="creditcardNo">
+        <input type="number" name="creditcardNo" matInput formControlName="creditcardNo">
+        <mat-error *ngIf="errorsField.creditcardNo">{{errorsField.creditcardNo}}</mat-error>
       </mat-form-field>
-      <mat-form-field appearance="fill">
+
+      <mat-form-field class="form-control">
         <mat-label>What's your email *</mat-label>
-        <input matInput name="email" [(ngModel)]="email">
+        <input matInput name="email" formControlName="email">
+        <mat-error *ngIf="errorsField.email">{{errorsField.email}}</mat-error>
       </mat-form-field>
 
     </div>
 
-    <div class="action" mat-dialog-action>
+    <div class="action">
       <div><span>Total to pay :</span><span>{{totalTopay|currency}}</span> </div>
-      <button (click)="save()" mat-button>Order now</button>
+      <button mat-button type="submit" [class]="valid" disabled="{{payForm.invalid}}">Order now</button>
+
     </div>
+
   </form>
 </div>
-

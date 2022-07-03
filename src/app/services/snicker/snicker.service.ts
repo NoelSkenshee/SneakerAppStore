@@ -1,48 +1,35 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpResponse } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
 import { Sneaker } from 'src/app/Types/snicker';
-import { tap } from 'rxjs/operators';
-import { Buy } from '../../Types/buy';
-import { URL } from 'src/app/inmutables/const';
-
+import { catchError } from 'rxjs/operators';
+import { Utils } from 'src/app/inmutables/const';
+const { api_url, endPoints } = Utils.URL;
+import { ErrorHandlerService } from '../error/error-handler.service';
+import {
+  HtttpResponseSneakerById,
+  HtttpResponseSneaker,
+} from '../../Types/snicker';
 @Injectable({
   providedIn: 'root',
 })
 export class SnickerService {
-  private sneaker_url: string = URL.api_url(0);
-  private sale_url: string = URL.api_url(1);
+  private sneaker_url: string = api_url(endPoints.sneaker);
 
+  constructor(
+    private http: HttpClient,
+    private handlerErr: ErrorHandlerService
+  ) {}
 
-  private sneakerList: Sneaker[] = [];
-
-  constructor(private http: HttpClient) {
-    this.listSniker();
-  }
-
-  listSniker(): Observable<{
-    error: boolean;
-    message: string;
-    data: Sneaker[];
-  }> {
+  listSniker(): Observable<HtttpResponseSneaker> {
     return this.http
-      .get<{ error: boolean; message: string; data: Sneaker[] }>(
-        this.sneaker_url
-      )
-      .pipe(tap((res) => (this.sneakerList = res.data)));
+      .get<HtttpResponseSneaker>(this.sneaker_url)
+      .pipe(catchError(this.handlerErr.handlerError));
   }
 
-  getSneakerById(id: string): Sneaker {
-    return this.sneakerList.filter((snk) => snk._id == id)[0];
-  }
-
-  order(order: Buy) {
+  getSneakerById(id: string): Observable<HtttpResponseSneakerById> {
     return this.http
-      .post<{ error: boolean; message: string; data: any }>(
-        this.sale_url,
-        order
-      )
-      .pipe(tap((res) =>res));
+      .get<HtttpResponseSneakerById>(api_url(endPoints.sneakerId(id)))
+      .pipe(catchError(this.handlerErr.handlerError));
   }
 }

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Sneaker } from '../../Types/snicker';
 import { SnickerService } from '../../services/snicker/snicker.service';
 import { EventCard } from '../../services/events/addToCard';
-import { ROUTES } from '../../inmutables/const';
 
 @Component({
   selector: 'app-details',
@@ -12,22 +11,26 @@ import { ROUTES } from '../../inmutables/const';
 })
 export class DetailsComponent implements OnInit {
   sneaker!: Sneaker;
-  selectedSize: number = 0;
+  selectedSize: number = 1;
   constructor(
     private activeR: ActivatedRoute,
     private http: SnickerService,
-    private add: EventCard,
-    private router:Router
+    private add: EventCard
   ) {}
 
   ngOnInit(): void {
+    this.readSneakerById();
+  }
+
+  readSneakerById() {
     const id = this.activeR.snapshot.params.id;
-    this.sneaker = this.http.getSneakerById(id);
-    if(!this.sneaker)this.router.navigate([ROUTES.menu_route])
+    this.http.getSneakerById(id).subscribe((sneaker) => {
+      this.sneaker = sneaker.data;
+    });
   }
 
   addToCard() {
-    this.sneaker.sizeSelected = this.selectedSize;
+    this.sneaker.sizesaleected = this.selectedSize;
     this.add.add(this.sneaker);
   }
 }

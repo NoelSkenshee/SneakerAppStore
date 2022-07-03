@@ -1,24 +1,22 @@
+<app-spinner *ngIf="!sneaker"></app-spinner>
 <div class="details container-fluid">
-
   <div *ngIf="sneaker">
-
     <mat-card class="card-image">
       <mat-card-content>
-        <img [src]="sneaker.image" mat-card-image alt="">
+        <img class="left_to_right" [src]="sneaker.image" mat-card-image alt="">
         <div class="action">
-          <mat-form-field appearance="fill">
-            <mat-label>Sizes</mat-label>
-            <mat-select [(ngModel)]="selectedSize">
+          <mat-form-field class="form-control">
+            <mat-select placeholder="Select size" [(ngModel)]="selectedSize">
               <mat-option [value]="size" *ngFor="let size of sneaker.sizes">
                 {{size}}
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <button mat-button (click)="addToCard()"><i class="fas fa-add"></i></button>
+          <button (click)="addToCard()"><i class="fas fa-add" title="Add to cart"></i></button>
         </div>
       </mat-card-content>
       <mat-card-footer>
-        <table>
+        <table class="right_to_left">
 
           <tr>
             <th>Brand</th>

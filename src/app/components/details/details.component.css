@@ -47,15 +47,19 @@ mat-card-content {
 button {
   margin: 1px;
   border-radius: 100%;
-  background-color: greenyellow;
+  background: transparent;
   height: 55px !important;
+  border: 0px transparent;
+  cursor: pointer;
 }
 
 i {
-  color: white;
+  color: greenyellow;
   font-size: 40px;
 }
-
+i:active {
+  transform: scale(2);
+}
 td {
   text-align: right;
 }
